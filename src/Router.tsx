@@ -13,7 +13,7 @@ export function Router() {
         <Route path="/" element={<Home />} />
       </Route>
       <Route path="/" element={<WithSearchBarLayout />}>
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:userName" element={<Profile />} />
         <Route path="/repository" element={<Repository />} />
       </Route>
 
