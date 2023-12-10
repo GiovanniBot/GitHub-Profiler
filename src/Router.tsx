@@ -3,6 +3,7 @@ import { Profile } from '@/pages/Profile'
 import { Route, Routes } from 'react-router-dom'
 import { WithSearchBarLayout } from './layouts/withSearchBarLayout'
 import { WithThemeToggleLayout } from './layouts/withThemeToggleLayout'
+import { NotFound } from './pages/404'
 import { Repository } from './pages/Repository'
 
 export function Router() {
@@ -15,6 +16,8 @@ export function Router() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/repository" element={<Repository />} />
       </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }
