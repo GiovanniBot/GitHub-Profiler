@@ -1,12 +1,15 @@
 import { Router } from '@/Router'
 import '@/styles/global.css'
 import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from './components/theme-provider'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <ThemeProvider defaultTheme="dark" storageKey="gp-ui-theme">
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
