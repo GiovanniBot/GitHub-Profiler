@@ -24,12 +24,12 @@ export function useSearchUserHook({ onSuccess }: UseSearchUserHook = {}) {
       }
 
       try {
-        const githubUser = await api(
+        const githubUserData = await api(
           `https://api.github.com/users/${githubUserInputValue}`
         )
 
-        navigation(`/profile/${githubUser.login}`, {
-          state: { githubUser },
+        navigation(`/profile/${githubUserData.login}`, {
+          state: { githubUserData },
         })
 
         onSuccess?.()

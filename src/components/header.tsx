@@ -2,11 +2,13 @@ import Logo from '@/assets/logo.svg?react'
 import { useSearchUserHook } from '@/hooks/useSearchUserHook'
 import { CornerDownLeft, Search } from 'lucide-react'
 import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ThemeToggle } from './theme-toggle'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 
 export function Header() {
+  const navigate = useNavigate()
   const inputRef = useRef<HTMLInputElement>(null)
   const { isLoading, handleSubmit } = useSearchUserHook({
     onSuccess: () => {
@@ -18,8 +20,8 @@ export function Header() {
   })
 
   return (
-    <div className="flex w-full p-5 h-14 items-center justify-between sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b mb-6">
-      <div>
+    <div className="flex w-full p-5 h-14 items-center justify-between sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b mb-6 z-10">
+      <div className="cursor-pointer" onClick={() => navigate('/')}>
         <Logo className="dark:invert h-10 w-fit" />
       </div>
 
