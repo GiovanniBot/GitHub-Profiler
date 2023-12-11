@@ -50,7 +50,7 @@ export function Repository() {
                 </span>
               </div>
 
-              <Button>
+              <Button asChild>
                 <a
                   href={githubRepositoryData?.html_url}
                   target="_blank"

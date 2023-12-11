@@ -32,7 +32,7 @@ export function ProfileInfo({ githubUserData }: ProfileInfoProps) {
         </span>
       </div>
 
-      <Button className="w-full my-3">
+      <Button className="w-full my-3" asChild>
         <a
           href={githubUserData?.html_url}
           target="_blank"
