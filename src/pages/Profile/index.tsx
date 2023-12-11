@@ -45,7 +45,7 @@ export function Profile() {
             <CardTitle>Repositories</CardTitle>
           </CardHeader>
 
-          <CardContent>
+          <CardContent className="p-0">
             <ProfileRepositories
               githubUserReposData={githubUserReposData}
               initialSortingState={[
