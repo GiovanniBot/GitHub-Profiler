@@ -14,7 +14,7 @@ export function Router() {
       </Route>
       <Route path="/" element={<WithSearchBarLayout />}>
         <Route path="/profile/:userName" element={<Profile />} />
-        <Route path="/repository" element={<Repository />} />
+        <Route path="/repository/:owner/:repoName" element={<Repository />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />
