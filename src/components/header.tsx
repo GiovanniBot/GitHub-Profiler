@@ -36,7 +36,7 @@ export function Header() {
           <Input
             ref={inputRef}
             disabled={isLoading}
-            className="focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 border-none rounded-none h-5"
+            className="focus-visible:shadow-none focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 border-none rounded-none h-5 bg-transparent"
             required
             placeholder="Search for a user"
             type="search"
