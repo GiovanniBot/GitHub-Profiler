@@ -48,14 +48,14 @@ export function Repository() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <ExternalLink className="text-slate-700 w-4 h-4" />
+                  <ExternalLink className="text-slate-100 dark:text-slate-700 w-4 h-4" />
                 </a>
               </Button>
             </div>
 
-            <span className="text-base font-light text-slate-400 break-words">
+            <span className="text-sm font-light text-slate-400 break-words">
               <Button
-                className="bg-transparent hover:bg-transparent p-0 h-fit"
+                className="bg-transparent hover:bg-transparent p-0 h-fit red"
                 variant="ghost"
                 onClick={() => navigate(`/profile/${owner}`)}
               >
