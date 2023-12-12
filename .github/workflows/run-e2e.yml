@@ -1,43 +1,36 @@
-name: Cypress Tests with Dependency and Artifact Caching
+name: Cypress Tests
 
 on: push
 
 jobs:
-  install:
+  e2e:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cypress install
-        uses: cypress-io/github-action@v6
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
-          # Disable running of tests within install job
-          runTests: false
-          build: npm run build
+          node-version: 20
 
-      - name: Save build folder
-        uses: actions/upload-artifact@v3
+      - name: Install dependencies
+        run: npm install
+
+      - name: Cache Cypress binary
+        uses: actions/cache@v3
         with:
-          name: build
-          if-no-files-found: error
-          path: build
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-cypress-${{ hashFiles('**/package-lock.json') }}
 
-  cypress-run:
-    runs-on: ubuntu-22.04
-    needs: install
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Download the build folder
-        uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: build
+      - name: Verify Cypress
+        run: |
+          npm cypress install
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
+          build: npm run build
           start: npm start
-          browser: chrome
