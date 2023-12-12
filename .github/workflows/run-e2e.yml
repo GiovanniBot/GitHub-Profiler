@@ -1,46 +1,43 @@
-name: Cypress Tests
+name: Cypress Tests with Dependency and Artifact Caching
+
 on: push
+
 jobs:
-  cypress-run:
+  install:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Install NPM dependencies, cache them correctly
-
-      - name: Installing Node.js
-        uses: actions/setup-node@v4
+      - name: Cypress install
+        uses: cypress-io/github-action@v6
         with:
-          node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: subdir/package-lock.json
+          # Disable running of tests within install job
+          runTests: false
+          build: npm run build
 
-      - name: Install NPM dependencies
-        run: npm ci
+      - name: Save build folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          if-no-files-found: error
+          path: build
 
-      - name: Run tests
-        run: npm test
+  cypress-run:
+    runs-on: ubuntu-22.04
+    needs: install
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # Run all Cypress tests
+      - name: Download the build folder
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: build
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: npm run build
           start: npm start
-
-      - name: Upload screenshots on failure
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
-
-      - name: Upload videos
-        uses: actions/upload-artifact@v3
-        with:
-          name: cypress-videos
-          path: cypress/videos
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+          browser: chrome
