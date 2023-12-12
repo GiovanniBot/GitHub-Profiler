@@ -8,11 +8,11 @@ export function Home() {
 
   return (
     <div className="flex items-center justify-center w-full h-[100svh] p-5 bg-background animate-[enter__.3s] fade-in zoom-in">
-      <div className="w-full md:w-fit">
-        <Logo className="w-full ml-2 xs:ml-4 md:w-fit dark:invert mb-8" />
+      <div className="w-full sm:w-fit">
+        <Logo className="w-full ml-2 xs:ml-4 sm:w-fit dark:invert mb-8" />
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-2 md:flex-row"
+          className="flex flex-col gap-2 sm:flex-row"
         >
           <Input
             disabled={isLoading}
