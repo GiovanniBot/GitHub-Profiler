@@ -34,7 +34,7 @@ export function Profile() {
   }
 
   return (
-    <div className="p-10 md:max-w-7xl md:mx-auto md:grid md:grid-cols-4 justify-center gap-5">
+    <div className="p-4 xs:px-8 md:px-10 md:max-w-7xl md:mx-auto md:grid md:grid-cols-4 justify-center xs:gap-5">
       <ProfileInfo githubUserData={githubUserData} />
 
       <div className="col-span-3 gap-4 flex flex-col">
@@ -58,6 +58,7 @@ export function Profile() {
           </CardContent>
         </Card>
       </div>
+      
     </div>
   )
 }

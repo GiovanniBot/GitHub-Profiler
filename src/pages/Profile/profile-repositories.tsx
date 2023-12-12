@@ -119,7 +119,7 @@ export function ProfileRepositories({
               data-state={row.getIsSelected() && 'selected'}
             >
               {row.getVisibleCells().map((cell) => (
-                <TableCell key={cell.id}>
+                <TableCell key={cell.id} className='px-8'>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </TableCell>
               ))}
@@ -128,7 +128,7 @@ export function ProfileRepositories({
         ) : (
           <TableRow>
             <TableCell>
-              <p className="font-semibold">No repositories found</p>
+              <p className="font-semibold">No repositories found.</p>
             </TableCell>
           </TableRow>
         )}
