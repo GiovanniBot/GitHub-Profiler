@@ -9,7 +9,7 @@ export function Home() {
   return (
     <div className="flex items-center justify-center w-full h-[100svh] p-5 bg-background animate-[enter__.3s] fade-in zoom-in">
       <div className="w-full md:w-fit">
-        <Logo className="w-full ml-4 md:w-fit dark:invert mb-8" />
+        <Logo className="w-full ml-2 xs:ml-4 md:w-fit dark:invert mb-8" />
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-2 md:flex-row"
@@ -22,6 +22,7 @@ export function Home() {
             title="Please enter at least one non-whitespace character"
             type="search"
             placeholder="search for a github user..."
+            className='text-base'
           />
           <Button type="submit" disabled={isLoading}>
             Search
