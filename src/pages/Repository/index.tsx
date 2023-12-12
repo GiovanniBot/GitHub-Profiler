@@ -53,7 +53,11 @@ export function Repository() {
               </Button>
             </div>
 
+<<<<<<< HEAD
             <span className="text-sm font-light text-slate-500 dark:text-slate-400 break-words">
+=======
+            <span className="text-sm font-light text-slate-400 break-words">
+>>>>>>> 0a38cfa11d511a65fa925c6b16cd3d99be6bd6b3
               <Button
                 className="bg-transparent hover:bg-transparent p-0 h-fit red"
                 variant="ghost"
