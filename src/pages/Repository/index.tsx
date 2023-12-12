@@ -32,7 +32,7 @@ export function Repository() {
   }
 
   return (
-    <div className="p-10 md:max-w-7xl flex md:mx-auto">
+    <div className="p-4 xs:px-8 md:px-10 md:max-w-7xl flex md:mx-auto">
       <Card className="w-full">
         <CardHeader>
             <div className="flex justify-between">
@@ -48,14 +48,14 @@ export function Repository() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <ExternalLink className="text-slate-700 w-4 h-4" />
+                  <ExternalLink className="text-slate-100 dark:text-slate-700 w-4 h-4" />
                 </a>
               </Button>
             </div>
 
-            <span className="text-base font-light text-slate-400 break-words">
+            <span className="text-sm font-light text-slate-500 dark:text-slate-400 break-words">
               <Button
-                className="bg-transparent hover:bg-transparent p-0 h-fit"
+                className="bg-transparent hover:bg-transparent p-0 h-fit red"
                 variant="ghost"
                 onClick={() => navigate(`/profile/${owner}`)}
               >
@@ -68,17 +68,20 @@ export function Repository() {
         {githubRepositoryData?.description && (
           <CardContent>
             <span className="text-sm font-light">
-              {`${numeral(githubRepositoryData?.stargazers_count).format(
-                '0a'
-              )} `}
-              <strong className="font-semibold">Stars</strong>
+              <span className='font-semibold'>
+                {`${numeral(githubRepositoryData?.stargazers_count).format(
+                  '0a'
+                )} `}
+              </span>
+              <span>Stars</span>
             </span>
-            {' · '}
+            {' · '}
             <span className="text-sm font-light">
-              {`${githubRepositoryData?.language} `}
-              <strong className="font-semibold">Language</strong>
+              <span className='font-semibold'>Language:</span>
+              <span>
+                {` ${githubRepositoryData?.language} `}
+              </span>
             </span>
-
             <Separator className="my-4" />
 
             <p className="text-lg">{githubRepositoryData?.description}</p>
