@@ -23,7 +23,7 @@ export function Header() {
     <div className='flex items-center mx-auto py-5 md:py-3 w-11/12'>
 
       <div className='cursor-pointer justify-self-start w-[200px]' onClick={() => navigate('/')}>
-        <img src={logoSVG} alt="Logo" />
+        <img src={logoSVG} alt="Logo" className='dark:invert' />
       </div>
 
       <div className='flex items-center ms-auto gap-1 xs:gap-4'>
