@@ -1,8 +1,9 @@
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { RepositoryProps } from '@/data/types/githubUserRepository'
 import { api } from '@/services/api'
+import { ExternalLink } from 'lucide-react'
 import numeral from 'numeral'
 import { useNavigate, useParams } from 'react-router-dom'
 import useSWR from 'swr'
@@ -34,33 +35,34 @@ export function Repository() {
     <div className="p-10 md:max-w-7xl flex md:mx-auto">
       <Card className="w-full">
         <CardHeader>
-          <CardTitle>
             <div className="flex justify-between">
-              <div className="flex flex-col pr-4">
-                <span>{githubRepositoryData?.name}</span>
-                <span className="text-base font-light text-slate-400">
-                  <Button
-                    className="bg-transparent hover:bg-transparent p-0"
-                    variant="ghost"
-                    onClick={() => navigate(`/profile/${owner}`)}
-                  >
-                    {owner}
-                  </Button>
-                  /{repoName}
+              <div className="flex flex-col pr-4 w-2/3">
+                <span className="break-words">
+                  {githubRepositoryData?.name}
                 </span>
               </div>
 
-              <Button asChild>
+              <Button className="w-14" asChild>
                 <a
                   href={githubRepositoryData?.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Go to repository
+                  <ExternalLink className="text-slate-700 w-4 h-4" />
                 </a>
               </Button>
             </div>
-          </CardTitle>
+
+            <span className="text-base font-light text-slate-400 break-words">
+              <Button
+                className="bg-transparent hover:bg-transparent p-0 h-fit"
+                variant="ghost"
+                onClick={() => navigate(`/profile/${owner}`)}
+              >
+                <span>{owner}</span>
+              </Button>
+              /{repoName}
+            </span>
         </CardHeader>
 
         {githubRepositoryData?.description && (
