@@ -9,7 +9,7 @@ describe('test header component', () => {
   })
 
   it('should be able to navigate to the profile page and return to home by clicking on the Logo', () => {
-    cy.get('svg:eq(1)')
+    cy.get('svg:eq(2)')
       .should('exist')
       .click()
 
@@ -39,7 +39,7 @@ describe('test header component', () => {
     cy.get('html[class="light"]')
       .should('exist')
 
-      cy.get('div[role="menuitem"]:nth-child(2)')
+    cy.get('div[role="menuitem"]:nth-child(2)')
       .click()
 
     cy.get('html[class="dark"]')
