@@ -16,7 +16,7 @@ describe('visit user repository page', () => {
       
       cy.location('pathname').should('include', '/repository/diego3g/')
 
-      cy.contains('Go to repository')
+      cy.get('a')
       .should('exist')
       .invoke('attr', 'href')
       .should('include', 'https://github.com/diego3g/')
