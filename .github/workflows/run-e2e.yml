@@ -33,4 +33,4 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           build: npm run build
-          start: npm run preview
+          start: npm run preview -- --port 5173
