@@ -5,37 +5,42 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       # Install NPM dependencies, cache them correctly
 
       - name: Installing Node.js
-      - uses: actions/setup-node@v4
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
           cache: 'npm'
           cache-dependency-path: subdir/package-lock.json
-      - run: npm ci
-      - run: npm test
 
-      # and run all Cypress tests
-      
+      - name: Install NPM dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      # Run all Cypress tests
+
       - name: Cypress run
-      - uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v6
         with:
-            build: npm run build
-            start: npm start
-      - uses: actions/upload-artifact@v3
+          build: npm run build
+          start: npm start
 
-        # add the line below to store screenshots only on failures
+      - name: Upload screenshots on failure
         if: failure()
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
-      - uses: actions/upload-artifact@v3
+
+      - name: Upload videos
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-videos
           path: cypress/videos
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
-        
