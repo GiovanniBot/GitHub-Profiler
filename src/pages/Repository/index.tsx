@@ -32,7 +32,7 @@ export function Repository() {
   }
 
   return (
-    <div className="p-10 md:max-w-7xl flex md:mx-auto">
+    <div className="p-4 xs:px-8 md:px-10 md:max-w-7xl flex md:mx-auto">
       <Card className="w-full">
         <CardHeader>
             <div className="flex justify-between">
