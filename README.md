@@ -3,8 +3,10 @@
 A frontend application built to interact with the GitHub API. It allows users to search for GitHub users, view their details, and display a list of repositories along with their details.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/4f2ce568-e313-44ea-a497-d6469c6e6010" alt="Gif demonstrativo.">
-</p>
+  <img src="https://github.com/user-attachments/assets/64c9349d-57b6-4727-883b-191380a78df6" alt="Gif demonstrativo.">
+</p> 
+<img width="1436" alt="Screenshot 2024-09-17 at 13 48 51" src="https://github.com/user-attachments/assets/de7dc2eb-3127-4032-a93f-9bb2ed53bdd7">
+<img width="1436" alt="Screenshot 2024-09-17 at 13 49 38" src="https://github.com/user-attachments/assets/c48a8152-93b1-4bab-a2b6-c54d20e67ebb">
 
 ## Table of Contents
 
